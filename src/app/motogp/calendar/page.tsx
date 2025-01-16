@@ -13,7 +13,6 @@ export default function Calendar() {
     try {
       const seasonsData = await fetchFinishedEvents();
       const filteredData = seasonsData.filter((race) => race.test === false);
-      debugger
       setNextRace(filteredData);
     } catch (error) {
       console.error("Error fetching standings:", error);
