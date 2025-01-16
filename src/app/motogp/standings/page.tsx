@@ -2,8 +2,6 @@
 
 import { fetchStandings } from "@/api";
 import { WorldStanding } from "@/api/types";
-import NumberFlow from "@number-flow/react";
-import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 export default function MotoGpStandings() {

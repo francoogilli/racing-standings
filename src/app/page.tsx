@@ -1,5 +1,4 @@
 import Image from "next/image";
-import NumberFlow from '@number-flow/react'
 
 export default function Home() {
   return (
@@ -16,7 +15,6 @@ export default function Home() {
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "} <span className="font-bold text-6xl">Verstappen= </span>
-            <NumberFlow willChange  value={525} className="font-bold font-inter text-6xl" />
 
             .
           </li>
