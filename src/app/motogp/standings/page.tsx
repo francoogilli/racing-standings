@@ -1,14 +1,12 @@
 "use client";
 
 import { fetchStandings } from "@/api";
-import { WorldStanding } from "@/api/types";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function MotoGpStandings() {
-
   const fetchSeasonsData = async () => {
     try {
-      const seasonsData = await fetchStandings();
+      await fetchStandings(); // Llama a la función
     } catch (error) {
       console.error("Error fetching standings:", error);
     }
@@ -19,8 +17,8 @@ export default function MotoGpStandings() {
   }, []);
 
   return (
-    <>
-      
-    </>
+    <div>
+      <p>Standings data will be displayed here soon...</p>
+    </div>
   );
 }
