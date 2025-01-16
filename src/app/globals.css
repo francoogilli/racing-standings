@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #090909;
+    --foreground: #ededed;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: #383838;
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #696868;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #444444;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #555555;
+}
+
+/* Para Firefox */
+* {
+  scrollbar-color: #696868 #383838;
+  scrollbar-width: auto;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+.bg-ambientLight {
+  background-image: radial-gradient(
+    68.54% 68.72% at 55.02% 31.46%,
+    hsla(0, 0%, 85%, 0.08) 0,
+    hsla(0, 0%, 55%, 0.02) 50%,
+    hsla(0, 0%, 45%, 0) 80%
+  );
+}
+
+.bg-ambientLight3 {
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    hsla(0, 0%, 85%, 0.04) 0,
+    hsla(0, 0%, 45%, 0.02) 80%,
+    transparent 100%
+  );
+}
+
+.bg-ambientLight2 {
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    hsla(0, 0%, 85%, 0.06) 0%,
+    hsla(0, 0%, 45%, 0.02) 80%,
+    transparent 100%
+  );
+}
+
+.shadowInnerGlow {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0px 2px 3px 0px hsla(0, 0%, 100%, 0.25) inset;
+}
+
+@font-face {
+  font-family: 'Clash';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/clash.woff2') format('woff2');
+}
+
+
+.effect01 {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.effect01:hover {
+  background-color: #fff;
+  & svg {
+    color: #000;
+  }
+}
+
+.effect01 span {
+  transition: all 0.2s ease-out;
+  z-index: 2;
+}
+
+.effect01:hover span {
+  color: #333;
+}
+
+.effect01:after {
+  background: #fff;
+  border: 0px solid #000;
+  content: '';
+  height: 155px;
+  left: -75px;
+  opacity: 0.8;
+  position: absolute;
+  top: -50px;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+  width: 50px;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 1;
+}
+
+.effect01:hover:after {
+  background: #fff;
+  border: 20px solid #000;
+  opacity: 0;
+  left: 120%;
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
