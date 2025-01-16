@@ -55,13 +55,13 @@ export default function Calendar() {
               ></div>
 
               <div className="relative group-hover:scale-110 duration-500 z-10 font-bold text-2xl">
-                {translateCircuitName(nextRace[index]?.country.name)}
+                {translateCircuitName(race?.country.name)}
               </div>
               <div className="relative z-10 font-bold group-hover:scale-110 duration-500 text-[7rem] leading-none">
                 {index + 1}
               </div>
               <div className="relative z-10 flex flex-col group-hover:scale-110 duration-500 font-bold text-center text-base">
-                <div>{formatDateRange(nextRace[index]?.date_start, nextRace[index]?.date_end)}</div>
+                <div>{formatDateRange(race?.date_start, race?.date_end)}</div>
               </div>
             </div>
           ))}
