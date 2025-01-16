@@ -2,12 +2,20 @@
 
 import { fetchFinishedEvents } from "@/api";
 import { ResponseItem } from "@/api/types";
-
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import { useEffect, useState } from "react";
 
+const SkeletonLoader = () => (
+  <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
+    <div className="bg-zinc-600 h-8 w-20 rounded-lg"></div>
+    <div className="bg-zinc-600 h-48 w-48 rounded-lg my-4 max-w-[calc(100%-0.001rem)]"></div>
+    <div className="bg-zinc-600 h-6 w-32 rounded-lg mb-2"></div>
+  </div>
+);
+
 export default function Calendar() {
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchSeasonsData = async () => {
     try {
@@ -16,17 +24,20 @@ export default function Calendar() {
       setNextRace(filteredData);
     } catch (error) {
       console.error("Error fetching standings:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchSeasonsData();
   }, []);
+
   return (
-    <section className=" text-white pb-8 py-12 px-6">
+    <section className="text-white pb-8 py-12 px-6">
       <div className="flex flex-col px-4 lg:md-0 mx-auto container py-12">
         <div className="text-6xl text-center font-clash max-w-5xl mx-auto">
-          <div className=" flex flex-col items-center gap-2 p-2">
+          <div className="flex flex-col items-center gap-2 p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               data-name="Layer 1"
@@ -43,28 +54,36 @@ export default function Calendar() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  gap-4 max-w-screen-xl mx-auto pt-12">
-          {nextRace.map((race, index) => (
-            <div
-              key={index}
-              className="col-span-1 flex flex-col items-center font-clash uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md group"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-25 transform scale-125 rotate-45 group-hover:scale-150 transition duration-500 ease-in-out"
-                style={{ backgroundImage: `url('/tracks/${index+1}.svg')` }}
-              ></div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 max-w-screen-xl mx-auto pt-12">
+          {loading
+            ? Array(22)
+                .fill(0)
+                .map((_, index) => <SkeletonLoader key={index} />) // Show skeletons while loading
+            : nextRace.map((race, index) => (
+                <div
+                  key={index}
+                  className="col-span-1 flex flex-col items-center font-clash uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md group"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-25 transform scale-125 rotate-45 group-hover:scale-150 transition duration-500 ease-in-out"
+                    style={{
+                      backgroundImage: `url('/tracks/${index + 1}.svg')`,
+                    }}
+                  ></div>
 
-              <div className="relative group-hover:scale-110 duration-500 z-10 font-bold text-2xl">
-                {translateCircuitName(race?.country.name)}
-              </div>
-              <div className="relative z-10 font-bold group-hover:scale-110 duration-500 text-[7rem] leading-none">
-                {index + 1}
-              </div>
-              <div className="relative z-10 flex flex-col group-hover:scale-110 duration-500 font-bold text-center text-base">
-                <div>{formatDateRange(race?.date_start, race?.date_end)}</div>
-              </div>
-            </div>
-          ))}
+                  <div className="relative group-hover:scale-110 duration-500 z-10 font-bold text-2xl">
+                    {translateCircuitName(race?.country.name)}
+                  </div>
+                  <div className="relative z-10 font-bold group-hover:scale-110 duration-500 text-[7rem] leading-none">
+                    {index + 1}
+                  </div>
+                  <div className="relative z-10 flex flex-col group-hover:scale-110 duration-500 font-bold text-center text-base">
+                    <div>
+                      {formatDateRange(race?.date_start, race?.date_end)}
+                    </div>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
     </section>
