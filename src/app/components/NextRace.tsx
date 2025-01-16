@@ -10,6 +10,7 @@ import { UnderlineWord } from "./UnderlineWord";
 import { ResponseItem } from "@/api/types";
 import { fetchFinishedEvents } from "@/api";
 import { formatDateToShort, translateCircuitName } from "../utils";
+import { Button } from "./Button";
 
 export default function NextRace() {
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
@@ -37,7 +38,9 @@ export default function NextRace() {
           </div>
           será en{" "}
           <strong className="font-semibold">
-            <UnderlineWord>{translateCircuitName(nextRace[0]?.country.name)}</UnderlineWord>
+            <UnderlineWord>
+              {translateCircuitName(nextRace[0]?.country.name)}
+            </UnderlineWord>
           </strong>
         </h2>
 
@@ -79,15 +82,7 @@ export default function NextRace() {
         </div>
 
         <div className="flex justify-center">
-          {/* <LinkEntrada style="black" /> */}
-          <a
-            href="/motogp/calendar"
-            rel="noopener noreferrer"
-            className="font-clash flex items-center justify-center gap-3 font-medium bg-black text-[#e4e4e4] py-4 px-4"
-          >
-            <Calendar />
-            ¡Ver Calendario completo!
-          </a>
+          <Button href="/motogp/calendar" text="Ver calendario completo" />
         </div>
       </div>
     </section>

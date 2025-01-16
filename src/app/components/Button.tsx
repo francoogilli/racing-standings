@@ -1,13 +1,13 @@
-export const Button = ({ text }: { text: string }) => {
+export const Button = ({ text, href }: { text: string; href: string }) => {
   return (
-    <button
-      className="px-5 py-3 font-clash font-[450] border flex justify-center w-full md:w-auto gap-2 transition items-center effect01 bg-[#1e78f7] "
+    <a
+      href={href}
+      rel="noopener noreferrer"
+      className="px-5 py-3 font-clash font-medium border flex justify-center w-full md:w-auto gap-2 transition items-center effect01 bg-black text-white "
     >
       <slot name="icon-left" />
-      <span>
-        {text}
-      </span>
+      <span>{text}</span>
       <slot name="icon-right" />
-    </button>
+    </a>
   );
 };
