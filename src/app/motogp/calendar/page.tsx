@@ -62,10 +62,10 @@ export default function Calendar() {
             : nextRace.map((race, index) => (
                 <div
                   key={index}
-                  className="col-span-1 flex flex-col items-center font-clash uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md group"
+                  className="col-span-1 flex flex-col items-center font-clash border border-transparent hover:border-[#252525] uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md group"
                 >
                   <div
-                    className="absolute inset-0 bg-cover bg-center opacity-25 transform scale-125 rotate-45 group-hover:scale-150 transition duration-500 ease-in-out"
+                    className="absolute inset-0 bg-cover bg-center opacity-25 transform  group-hover:scale-150 transition duration-500 ease-in-out"
                     style={{
                       backgroundImage: `url('/tracks/${index + 1}.svg')`,
                     }}
