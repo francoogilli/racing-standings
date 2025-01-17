@@ -11,23 +11,54 @@ import { ResponseItem } from "@/api/types";
 import { fetchFinishedEvents } from "@/api";
 import { formatDateToShort, translateCircuitName } from "../utils";
 import { Button } from "./Button";
+import { tr } from "motion/react-client";
 
 export default function NextRace() {
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const fetchSeasonsData = async () => {
     try {
       const seasonsData = await fetchFinishedEvents();
-      debugger;
       setNextRace(seasonsData);
     } catch (error) {
       console.error("Error fetching standings:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchSeasonsData();
   }, []);
+
+  if (isLoading) {
+    return (
+      <section className="bg-[#f7df1e] text-black pb-8 py-12 px-6">
+        <div className="flex flex-col px-4 lg:md-0 mx-auto container py-12">
+          <h2 className="text-6xl text-center font-clash max-w-5xl mx-auto">
+            Cargando información del próximo{" "}
+            <CrossContainerTitle>Gran Premio...</CrossContainerTitle>
+          </h2>
+
+          <div className="font-clash flex py-12 gap-x-10 justify-between flex-col md:flex-row gap-y-8">
+            <article className="md:p-12 border border-black w-full p-8 animate-pulse">
+              <div className="h-6 bg-[#d3bd15] rounded-md mb-4 w-1/3"></div>
+              <div className="h-8 bg-[#d3bd15] rounded-md mb-2 w-2/3"></div>
+              <div className="h-6 bg-[#d3bd15] rounded-md w-1/4"></div>
+            </article>
+
+            <article className="md:p-12 border border-black w-full p-8 animate-pulse">
+              <div className="h-6 bg-[#d3bd15] rounded-md mb-4 w-1/2"></div>
+              <div className="h-8 bg-[#d3bd15] rounded-md mb-2 w-3/4"></div>
+              <div className="h-6 bg-[#d3bd15] rounded-md w-1/4"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="bg-[#f7df1e] text-black pb-8 py-12 px-6">
       <div className="flex flex-col px-4 lg:md-0 mx-auto container py-12">
