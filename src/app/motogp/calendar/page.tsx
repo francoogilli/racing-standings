@@ -58,7 +58,7 @@ export default function Calendar() {
           {loading
             ? Array(22)
                 .fill(0)
-                .map((_, index) => <SkeletonLoader key={index} />) // Show skeletons while loading
+                .map((_, index) => <SkeletonLoader key={index} />)
             : nextRace.map((race, index) => (
                 <div
                   key={index}
