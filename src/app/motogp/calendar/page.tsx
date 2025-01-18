@@ -70,7 +70,7 @@ export default function Calendar() {
                     ></div>
 
                     <div className="relative group-hover:scale-110 duration-500 z-10 font-bold text-2xl">
-                      {translateCircuitName(race?.country.name)}
+                      {translateCircuitName(race?.short_name)}
                     </div>
                     <div className="relative z-10 font-bold group-hover:scale-110 duration-500 text-[7rem] leading-none">
                       {index + 1}
@@ -83,7 +83,7 @@ export default function Calendar() {
                   </div>
                   <div className="py-5 pb-7 group-hover:scale-110 duration-500 ">
                     <Image
-                      src={`/flags/${race?.country.iso}.jpg`}
+                      src={`/flags/${race?.short_name}.jpg`}
                       alt=""
                       width={80}
                       height={120}
