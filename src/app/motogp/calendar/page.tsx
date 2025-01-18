@@ -61,7 +61,7 @@ export default function Calendar() {
                 .map((_, index) => <SkeletonLoader key={index} />)
             : nextRace.map((race, index) => (
                 <div className="flex flex-col group" key={index}>
-                  <div className="col-span-1 flex flex-col items-center font-clash border border-transparent hover:border-[#252525] uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md ">
+                  <div className="col-span-1 flex flex-col items-center font-clash border border-transparent hover:border-[#252525] uppercase gap-8 p-2 px-9 py-6 bg-[#1c1c1c] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md ">
                     <div
                       className="absolute inset-0 bg-cover bg-center opacity-25 transform  group-hover:scale-150 transition duration-500 ease-in-out"
                       style={{
