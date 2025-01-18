@@ -11,7 +11,6 @@ import { ResponseItem } from "@/api/types";
 import { fetchFinishedEvents } from "@/api";
 import { formatDateToShort, translateCircuitName } from "../utils";
 import { Button } from "./Button";
-import { tr } from "motion/react-client";
 
 export default function NextRace() {
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
