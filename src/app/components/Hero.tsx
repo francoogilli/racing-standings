@@ -135,12 +135,10 @@ const Hero = () => {
           <div style={{ opacity: 1, transform: "none", fontFamily: "Geist" }}>
             <div className="font-clash text-[clamp(1.8rem,5vw,4.5rem)] leading-[100%] font-medium space-y-4 pb-4">
               <p>Conoce toda la actualidad sobre </p>
-              <p>
                 {" "}
                 <div className="mx-auto text-black p-2 py-5 rounded-[20px] bg-gradient-to-r from-[#ffde65] to-[#fdb600] w-fit text-center rotate-2 ">
                   <MotoGp className="w-[20rem] -rotate-2" />
                 </div>
-              </p>
             </div>
           </div>
           <div style={{ opacity: 1, transform: "none" }}>
