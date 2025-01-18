@@ -1,6 +1,7 @@
 import NextRace from "../components/NextRace";
 import StandingsDemo from "../components/StandingsDemo";
 import Calendar from "../icons/Calendar";
+import MotoGp from "../icons/MotoGp";
 import Trophy from "../icons/Trophy";
 
 export default function MotoGpHero() {
@@ -139,9 +140,9 @@ export default function MotoGpHero() {
                 <p>Conoce toda la actualidad sobre </p>
                 <p>
                   {" "}
-                  <span className="text-black font-semibold relative before:content-[''] overflow-hidden before:absolute before:w-[calc(100%_+_0.25em)] before:h-full before:bg-gradient-to-r before:from-[#FFFE65] before:to-[#F7DF1F] before:rotate-2 mix-blend-lighten before:-z-30 before:-left-[0.125em] before:top-0">
-                    MotoGP
-                  </span>
+                  <div className="mx-auto text-black p-2 py-5 rounded-[20px] bg-gradient-to-r from-[#ffde65] to-[#fdb600] w-fit text-center rotate-2 ">
+                    <MotoGp className="w-[20rem] -rotate-2" />
+                  </div>
                 </p>
               </div>
             </div>
@@ -185,7 +186,7 @@ export default function MotoGpHero() {
                   className="font-clash inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 dark:bg-neutral-900 bg-white hover:bg-gray-200 dark:hover:bg-neutral-800 text-secondary-foreground h-12 rounded-md px-6 dark:!bg-neutral-800/70 backdrop-blur"
                   href="https://cdn.zegieweb.com/zegie-dev-images/cv.pdf"
                 >
-                  <Calendar/>
+                  <Calendar />
                   Ver calendario
                 </a>
               </div>
@@ -194,7 +195,7 @@ export default function MotoGpHero() {
         </div>
       </div>
       <NextRace />
-      <StandingsDemo/>
+      <StandingsDemo />
     </>
   );
 }
