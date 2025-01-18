@@ -4,7 +4,6 @@ import { fetchFinishedEvents } from "@/api";
 import { ResponseItem } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const SkeletonLoader = () => (
