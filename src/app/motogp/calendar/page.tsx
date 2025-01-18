@@ -7,10 +7,15 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SkeletonLoader = () => (
-  <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
-    <div className="bg-zinc-700 h-8 w-40 rounded-lg"></div>
-    <div className="bg-zinc-700 h-[8.5rem] w-48 rounded-lg my-4 max-w-[calc(100%-0.001rem)]"></div>
-    <div className="bg-zinc-700 h-6 w-32 rounded-lg mb-2"></div>
+  <div className="animate-pulse mb-8">
+    <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
+      <div className="bg-zinc-700 h-8 w-40 rounded-lg"></div>
+      <div className="bg-zinc-700 h-[8.5rem] w-48 rounded-lg my-4 max-w-[calc(100%-0.001rem)]"></div>
+      <div className="bg-zinc-700 h-6 w-32 rounded-lg mb-2"></div>
+    </div>
+    <div className="col-span-1 w-fit mx-auto flex flex-col items-center p-2 mt-4 bg-zinc-800 animate-pulse rounded-xl">
+      <div className="bg-zinc-700 h-5 w-10 rounded-md"></div>
+    </div>
   </div>
 );
 
