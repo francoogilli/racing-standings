@@ -16,7 +16,6 @@ const SkeletonLoader = () => (
 );
 
 export default function Calendar() {
-  const router = useRouter();
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +27,7 @@ export default function Calendar() {
     } catch (error) {
       console.error("Error fetching standings:", error);
     } finally {
-      setLoading(false);
+      setLoading(true);
     }
   };
 
