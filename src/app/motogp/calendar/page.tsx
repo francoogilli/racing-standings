@@ -4,7 +4,7 @@ import { fetchFinishedEvents } from "@/api";
 import { ResponseItem } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 const SkeletonLoader = () => (
   <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
     <div className="bg-zinc-600 h-8 w-40 rounded-lg"></div>
@@ -60,27 +60,35 @@ export default function Calendar() {
                 .fill(0)
                 .map((_, index) => <SkeletonLoader key={index} />)
             : nextRace.map((race, index) => (
-                <div
-                  key={index}
-                  className="col-span-1 flex flex-col items-center font-clash border border-transparent hover:border-[#252525] uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md group"
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-25 transform  group-hover:scale-150 transition duration-500 ease-in-out"
-                    style={{
-                      backgroundImage: `url('/tracks/${index + 1}.svg')`,
-                    }}
-                  ></div>
+                <div className="flex flex-col group" key={index}>
+                  <div className="col-span-1 flex flex-col items-center font-clash border border-transparent hover:border-[#252525] uppercase gap-8 p-2 px-9 py-6 bg-[#1e1e1e] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md ">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center opacity-25 transform  group-hover:scale-150 transition duration-500 ease-in-out"
+                      style={{
+                        backgroundImage: `url('/tracks/${index + 1}.svg')`,
+                      }}
+                    ></div>
 
-                  <div className="relative group-hover:scale-110 duration-500 z-10 font-bold text-2xl">
-                    {translateCircuitName(race?.country.name)}
-                  </div>
-                  <div className="relative z-10 font-bold group-hover:scale-110 duration-500 text-[7rem] leading-none">
-                    {index + 1}
-                  </div>
-                  <div className="relative z-10 flex flex-col group-hover:scale-110 duration-500 font-bold text-center text-base">
-                    <div>
-                      {formatDateRange(race?.date_start, race?.date_end)}
+                    <div className="relative group-hover:scale-110 duration-500 z-10 font-bold text-2xl">
+                      {translateCircuitName(race?.country.name)}
                     </div>
+                    <div className="relative z-10 font-bold group-hover:scale-110 duration-500 text-[7rem] leading-none">
+                      {index + 1}
+                    </div>
+                    <div className="relative z-10 flex flex-col group-hover:scale-110 duration-500 font-bold text-center text-base">
+                      <div>
+                        {formatDateRange(race?.date_start, race?.date_end)}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="py-5 pb-7 group-hover:scale-110 duration-300 ">
+                    <Image
+                      src={`/flags/${race?.country.iso}.jpg`}
+                      alt=""
+                      width={80}
+                      height={120}
+                      className="boxer-flag mx-auto mask-flag pointer-events-none aspect-[3/2] w-14 object-contain object-center"
+                    />
                   </div>
                 </div>
               ))}
