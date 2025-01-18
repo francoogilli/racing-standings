@@ -4,7 +4,9 @@ import { fetchFinishedEvents } from "@/api";
 import { ResponseItem } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+
 const SkeletonLoader = () => (
   <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
     <div className="bg-zinc-600 h-8 w-40 rounded-lg"></div>
@@ -14,6 +16,7 @@ const SkeletonLoader = () => (
 );
 
 export default function Calendar() {
+  const router = useRouter();
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -81,7 +84,7 @@ export default function Calendar() {
                       </div>
                     </div>
                   </div>
-                  <div className="py-5 pb-7 group-hover:scale-110 duration-500 ">
+                  <div className="py-5 pb-7 group-hover:scale-110 duration-500 opacity-45 group-hover:opacity-100">
                     <Image
                       src={`/flags/${race?.short_name}.jpg`}
                       alt=""
