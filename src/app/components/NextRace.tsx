@@ -14,7 +14,6 @@ import { Button } from "./Button";
 
 export default function NextRace() {
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchSeasonsData = async () => {
@@ -69,7 +68,7 @@ export default function NextRace() {
           será en{" "}
           <strong className="font-semibold">
             <UnderlineWord>
-              {translateCircuitName(nextRace[0]?.country.name)}
+              {translateCircuitName(nextRace[0]?.short_name)}
             </UnderlineWord>
           </strong>
         </h2>
@@ -112,7 +111,7 @@ export default function NextRace() {
         </div>
 
         <div className="flex justify-center">
-          <Button href="/motogp/calendar" text="Ver calendario completo" />
+          <Button href="/motogp/calendar" text="Calendario 2025" />
         </div>
       </div>
     </section>
