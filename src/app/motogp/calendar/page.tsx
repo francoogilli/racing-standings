@@ -8,9 +8,9 @@ import Image from "next/image";
 
 const SkeletonLoader = () => (
   <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
-    <div className="bg-zinc-600 h-8 w-40 rounded-lg"></div>
-    <div className="bg-zinc-600 h-[8.5rem] w-48 rounded-lg my-4 max-w-[calc(100%-0.001rem)]"></div>
-    <div className="bg-zinc-600 h-6 w-32 rounded-lg mb-2"></div>
+    <div className="bg-zinc-700 h-8 w-40 rounded-lg"></div>
+    <div className="bg-zinc-700 h-[8.5rem] w-48 rounded-lg my-4 max-w-[calc(100%-0.001rem)]"></div>
+    <div className="bg-zinc-700 h-6 w-32 rounded-lg mb-2"></div>
   </div>
 );
 
@@ -26,7 +26,7 @@ export default function Calendar() {
     } catch (error) {
       console.error("Error fetching standings:", error);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
