@@ -7,9 +7,9 @@ export default function Trophy() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="1.7"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="icon icon-tabler icons-tabler-outline icon-tabler-laurel-wreath-1"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
