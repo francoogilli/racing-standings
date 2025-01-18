@@ -81,7 +81,7 @@ export default function Calendar() {
                       </div>
                     </div>
                   </div>
-                  <div className="py-5 pb-7 group-hover:scale-110 duration-300 ">
+                  <div className="py-5 pb-7 group-hover:scale-110 duration-500 ">
                     <Image
                       src={`/flags/${race?.country.iso}.jpg`}
                       alt=""
