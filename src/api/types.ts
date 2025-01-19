@@ -95,24 +95,6 @@ interface FileDetail {
   menu_position: number;
 }
 
-interface EventCategory {
-  category_id: string;
-  category_timing_id: number;
-  timing_id: number;
-  extra_timing_id: string | null;
-  sequence: number;
-  num_laps: number;
-  sprint_num_laps: number | null;
-  red_flag: number;
-  sprint_red_flag: number | null;
-  distance: {
-    meters: number;
-    kiloMeters: number;
-    miles: number;
-    feet: number;
-  };
-}
-
 interface Circuit {
   id: string;
   name: string;
@@ -163,6 +145,22 @@ interface Circuit {
     is_active: boolean;
     timing_ids: Array<{ business_unit: string; id: string }>;
     modification_date: string;
+    assets: {
+        simple: {
+          id: string,
+          name: string,
+          type: string,
+          path: string,
+          mimetype: string,
+        },
+        info: {
+          id: string,
+          name: string,
+          type: string,
+          path: string,
+          mimetype: string,
+        }
+      }
   };
   circuit_descriptions: Array<{
     id: string;
@@ -190,13 +188,66 @@ interface TicketUrl {
 }
 
 export interface EventInfoData {
-  event_categories: EventCategory[];
+  event_categories: [
+    {
+      category_id: string;
+      category_timing_id: number;
+      timing_id: number;
+      extra_timing_id: string | null;
+      sequence: number;
+      num_laps: number;
+      sprint_num_laps: number | null;
+      red_flag: number;
+      sprint_red_flag: number | null;
+      distance: {
+        meters: number;
+        kiloMeters: number;
+        miles: number;
+        feet: number;
+      };
+    },
+    {
+      category_id: string;
+      category_timing_id: number;
+      timing_id: number;
+      extra_timing_id: string | null;
+      sequence: number;
+      num_laps: number;
+      sprint_num_laps: number | null;
+      red_flag: number;
+      sprint_red_flag: number | null;
+      distance: {
+        meters: number;
+        kiloMeters: number;
+        miles: number;
+        feet: number;
+      };
+    },
+    {
+      category_id: string;
+      category_timing_id: number;
+      timing_id: number;
+      extra_timing_id: string | null;
+      sequence: number;
+      num_laps: number;
+      sprint_num_laps: number | null;
+      red_flag: number;
+      sprint_red_flag: number | null;
+      distance: {
+        meters: number;
+        kiloMeters: number;
+        miles: number;
+        feet: number;
+      };
+    }
+  ];
   country: string;
   circuit: Circuit;
   type: string;
   urls: TicketUrl[];
   hashtag: string;
   date_end: string;
+  shortname: string;
   date_start: string;
   timing_id: number;
   assets: [
