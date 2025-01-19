@@ -7,6 +7,43 @@ import { EventInfoData } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import Image from "next/image";
 
+function Skeleton() {
+  return (
+    <section className="text-white pb-8 py-12 px-6">
+      <div className="flex flex-col px-4 lg:md-0 mx-auto container py-12">
+        <div className="text-6xl text-center font-clash max-w-5xl mx-auto">
+          <div className="flex flex-col items-center gap-2 p-2">
+            <div className="bg-zinc-800 h-8 w-44 rounded-md animate-pulse"></div>
+            <div className="flex justify-center items-center gap-5 text-7xl pt-2">
+              <div className="bg-zinc-800 h-16 w-[30rem] rounded-md animate-pulse"></div>
+            </div>
+            <div className="bg-zinc-800 h-6 w-36 rounded-md animate-pulse mt-5"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-12 gap-4 pt-20">
+          <div className="col-span-7 bg-gradient-to-tl from-[#141414] to-[#000000] rounded-3xl p-7 space-y-4">
+            <div className="bg-zinc-800 h-8 w-96 rounded-md animate-pulse"></div>
+            <div className="space-y-2">
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-10/12 rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-full rounded-md animate-pulse"></div>
+              <div className="bg-zinc-800 h-4 w-1/2 rounded-md animate-pulse"></div>
+            </div>
+          </div>
+          <div className="col-span-5 bg-gradient-to-tr from-[#141414] to-[#000000] p-6 flex justify-center items-center rounded-3xl">
+            <div className="bg-zinc-800 h-64 w-96 rounded-3xl animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function EventPage() {
   const { id } = useParams();
   const [eventDetails, setEventDetails] = useState<EventInfoData>();
@@ -28,7 +65,7 @@ export default function EventPage() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Skeleton />;
   }
 
   if (!eventDetails) {
@@ -36,18 +73,18 @@ export default function EventPage() {
   }
 
   return (
-    <section className=" text-white pb-8 py-12 px-6">
+    <section className="text-white pb-8 py-12 px-6">
       <div className="flex flex-col px-4 lg:md-0 mx-auto container py-12">
         <div className="text-6xl text-center font-clash max-w-5xl mx-auto">
-          <div className=" flex flex-col items-center gap-2 p-2">
+          <div className="flex flex-col items-center gap-2 p-2">
             <div className="flex justify-center items-center">
-              <div className="bg-[#e91a17]  px-2.5 rounded-xl uppercase font-semibold text-2xl pt-1">
+              <div className="bg-[#e91a17] px-2.5 rounded-xl uppercase font-semibold text-2xl pt-1">
                 {eventDetails.hashtag}
               </div>
             </div>
 
             <div className="flex justify-center items-center gap-5 text-7xl pt-2">
-              <span className="font-train ">2025</span>
+              <span className="font-train">2025</span>
               <span className="uppercase font-bold text-[85px] pt-1.5">
                 {translateCircuitName(eventDetails.shortname)}
               </span>
