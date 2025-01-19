@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchCircuitData } from "@/api";
 import { EventInfoData } from "@/api/types";
-import Image from "next/image";
 import { formatDateRange } from "@/app/utils";
 
 export default function EventPage() {
