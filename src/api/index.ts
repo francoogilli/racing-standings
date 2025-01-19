@@ -1,6 +1,6 @@
 "use server";
 
-import { ResponseItem, WorldStanding } from "./types";
+import { EventData, ResponseItem, WorldStanding } from "./types";
 
 export async function fetchStandings(): Promise<WorldStanding> {
   const response = await fetch(
@@ -12,9 +12,19 @@ export async function fetchStandings(): Promise<WorldStanding> {
   return response.json();
 }
 
-export async function fetchFinishedEvents(): Promise<ResponseItem[]> {
+export async function fetchUnfinishedEvents(): Promise<ResponseItem[]> {
   const response = await fetch(
     "https://api.motogp.pulselive.com/motogp/v1/results/events?seasonUuid=ae6c6f0d-c652-44f8-94aa-420fc5b3dab4&isFinished=false"
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch finished events");
+  }
+  return response.json();
+}
+
+export async function fetchCircuitData(id: string): Promise<EventData> {
+  const response = await fetch(
+    `https://api.pulselive.motogp.com/motogp/v1/events/${id}`
   );
   if (!response.ok) {
     throw new Error("Failed to fetch finished events");

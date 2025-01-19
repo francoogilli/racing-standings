@@ -1,10 +1,11 @@
 "use client";
 
-import { fetchFinishedEvents } from "@/api";
+import { fetchUnfinishedEvents } from "@/api";
 import { ResponseItem } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import router from "next/router";
 
 const SkeletonLoader = () => (
   <div className="animate-pulse mb-8">
@@ -25,7 +26,7 @@ export default function Calendar() {
 
   const fetchSeasonsData = async () => {
     try {
-      const seasonsData = await fetchFinishedEvents();
+      const seasonsData = await fetchUnfinishedEvents();
       const filteredData = seasonsData.filter((race) => race.test === false);
       setNextRace(filteredData);
     } catch (error) {
@@ -66,7 +67,11 @@ export default function Calendar() {
                 .fill(0)
                 .map((_, index) => <SkeletonLoader key={index} />)
             : nextRace.map((race, index) => (
-                <div className="flex flex-col group" key={index}>
+                <a
+                  className="flex flex-col group"
+                  key={index}
+                  href={`/motogp/event/${race.toad_api_uuid}`}
+                >
                   <div className="col-span-1 flex flex-col items-center font-clash border border-transparent hover:border-[#252525] uppercase gap-8 p-2 px-9 py-6 bg-[#1c1c1c] hover:bg-[#151515] duration-300 text-[#FDFDFD] relative overflow-hidden rounded-md ">
                     <div
                       className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-0 transform  group-hover:scale-150 transition duration-500 ease-in-out"
@@ -96,7 +101,7 @@ export default function Calendar() {
                       className="boxer-flag mx-auto mask-flag pointer-events-none aspect-[3/2] w-14 object-contain object-center"
                     />
                   </div>
-                </div>
+                </a>
               ))}
         </div>
       </div>
