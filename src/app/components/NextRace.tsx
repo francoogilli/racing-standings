@@ -8,9 +8,9 @@ import PinMap from "../icons/PinMap";
 import { CrossContainerTitle } from "./CrossContainerTitle";
 import { UnderlineWord } from "./UnderlineWord";
 import { ResponseItem } from "@/api/types";
-import { fetchFinishedEvents } from "@/api";
 import { formatDateToShort, translateCircuitName } from "../utils";
 import { Button } from "./Button";
+import { fetchUnfinishedEvents } from "@/api";
 
 export default function NextRace() {
   const [nextRace, setNextRace] = useState<ResponseItem[]>([]);
@@ -18,7 +18,7 @@ export default function NextRace() {
 
   const fetchSeasonsData = async () => {
     try {
-      const seasonsData = await fetchFinishedEvents();
+      const seasonsData = await fetchUnfinishedEvents();
       setNextRace(seasonsData);
     } catch (error) {
       console.error("Error fetching standings:", error);
