@@ -7,7 +7,7 @@ function formatDateToShort(dateString: string): string {
 
   return `${day} ${month}.`;
 }
-function formatDateRange(dateStart: string, dateEnd: string): string {
+function formatDateRange(dateStart: string, dateEnd: string, addOneDay: boolean): string {
   const months = [
     "Ene",
     "Feb",
@@ -26,17 +26,17 @@ function formatDateRange(dateStart: string, dateEnd: string): string {
   const start = new Date(dateStart);
   const end = new Date(dateEnd);
 
-  const startDay = start.getDate() + 1;
+  const startDay = start.getDate() + (addOneDay ? 1 : 0);
   const startMonth = months[start.getMonth()];
 
-  const endDay = end.getDate() + 1;
+  const endDay = end.getDate() + (addOneDay ? 1 : 0);
   const endMonth = months[end.getMonth()];
 
   if (startMonth === endMonth) {
-    return `${startMonth} ${startDay} - ${endDay}`;
+    return `${startDay}-${endDay} ${startMonth}`;
   }
 
-  return `${startMonth} ${startDay} - ${endMonth} ${endDay}`;
+  return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
 }
 
 const translateCircuitName = (name: string) => {

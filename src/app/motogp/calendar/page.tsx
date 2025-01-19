@@ -87,7 +87,7 @@ export default function Calendar() {
                     </div>
                     <div className="relative z-10 flex group-hover:text-[#fdb600] flex-col group-hover:scale-110 duration-500 font-bold text-center text-base">
                       <div>
-                        {formatDateRange(race?.date_start, race?.date_end)}
+                        {formatDateRange(race?.date_start, race?.date_end, true)}
                       </div>
                     </div>
                   </div>

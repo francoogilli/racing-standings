@@ -1,6 +1,6 @@
 "use server";
 
-import { EventData, ResponseItem, WorldStanding } from "./types";
+import {  EventInfoData, ResponseItem, WorldStanding } from "./types";
 
 export async function fetchStandings(): Promise<WorldStanding> {
   const response = await fetch(
@@ -22,7 +22,7 @@ export async function fetchUnfinishedEvents(): Promise<ResponseItem[]> {
   return response.json();
 }
 
-export async function fetchCircuitData(id: string): Promise<EventData> {
+export async function fetchCircuitData(id: string): Promise<EventInfoData> {
   const response = await fetch(
     `https://api.pulselive.motogp.com/motogp/v1/events/${id}`
   );
