@@ -5,7 +5,6 @@ import { ResponseItem } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import router from "next/router";
 
 const SkeletonLoader = () => (
   <div className="animate-pulse mb-8">
