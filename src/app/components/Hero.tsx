@@ -176,7 +176,6 @@ const Hero = () => {
                 </div>
               </a>
               <a
-                target="_blank"
                 rel="noreferrer"
                 className="font-clash inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-neutral-900 hover:bg-neutral-800 text-secondary-foreground h-12 rounded-md px-6  backdrop-blur"
                 href="/motogp/calendar"
