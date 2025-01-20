@@ -6,6 +6,10 @@ import { fetchCircuitData } from "@/api";
 import { EventInfoData } from "@/api/types";
 import { formatDateRange, translateCircuitName } from "@/app/utils";
 import Image from "next/image";
+import Straight from "@/app/icons/Straight";
+import CornerRight from "@/app/icons/CornerRight";
+import CornerLeft from "@/app/icons/CornerLeft";
+import EaseInOut from "@/app/icons/EaseInOut";
 
 function Skeleton() {
   return (
@@ -99,14 +103,14 @@ export default function EventPage() {
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4 pt-20">
-          <div className="col-span-7 bg-gradient-to-tl from-[#141414] to-[#000000] rounded-3xl p-7">
+          <div className="col-span-7 bg-[#141414] rounded-3xl p-7">
             <div className="flex justify-start items-center gap-2">
               <svg
                 width="22"
                 height="27"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-[#2243c6]"
+                className="text-[#000000]"
               >
                 <path
                   fillRule="evenodd"
@@ -130,13 +134,73 @@ export default function EventPage() {
             ></div>
           </div>
 
-          <div className="col-span-5 p-2 bg-gradient-to-tr from-[#141414] to-[#000000] flex justify-center items-center rounded-3xl">
+          <div className="col-span-5 p-2 bg-[#141414] flex justify-center items-center rounded-3xl">
             <Image
               src={eventDetails.circuit.track.assets.info.path}
               alt="Track"
               width={500}
               height={500}
             />
+          </div>
+          <div className="col-span-7 bg-[#141414] rounded-3xl p-7">
+            <div className="flex justify-start items-center gap-1">
+              <svg
+                width="22"
+                height="27"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 27"
+                className="text-[#22c659] size-4"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M21.353.709717h-5.6761c-2.7029 0-5.4059 1.621743-6.48701 4.324653L0 26.9279h5.67611c2.7029 0 5.40579-1.6217 6.48699-4.3246L21.353.709717Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h3 className="uppercase text-xl pt-0.5 font-clash font-semibold">
+                Especificaciones del circuito
+              </h3>
+            </div>
+            <div className="grid grid-cols-4 gap-2 pt-3">
+              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
+                  <EaseInOut className="-rotate-12" />
+                  Longitud del circuito
+                </span>
+                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
+                  {eventDetails.circuit.track.lenght_units.kiloMeters}KM
+                </p>
+              </div>
+              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
+                  <Straight />
+                  Recta más larga
+                </span>
+                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
+                  {eventDetails.circuit.track.longest_straight}M
+                </p>
+              </div>
+              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
+                  <CornerLeft />
+                  Curvas izquierdas
+                </span>
+                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
+                  {eventDetails.circuit.track.left_corners}
+                </p>
+              </div>
+              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
+                  <CornerRight />
+                  Curvas derechas
+                </span>
+                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
+                  {eventDetails.circuit.track.right_corners}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
