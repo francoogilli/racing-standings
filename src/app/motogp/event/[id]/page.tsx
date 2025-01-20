@@ -10,6 +10,7 @@ import Straight from "@/app/icons/Straight";
 import CornerRight from "@/app/icons/CornerRight";
 import CornerLeft from "@/app/icons/CornerLeft";
 import EaseInOut from "@/app/icons/EaseInOut";
+import React from "react";
 
 function Skeleton() {
   return (
@@ -103,7 +104,7 @@ export default function EventPage() {
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4 pt-20">
-          <div className="col-span-7 bg-[#141414] rounded-3xl p-7">
+          <div className="col-span-7 bg-[#141414] rounded-2xl p-7">
             <div className="flex justify-start items-center gap-2">
               <svg
                 width="22"
@@ -134,7 +135,7 @@ export default function EventPage() {
             ></div>
           </div>
 
-          <div className="col-span-5 p-2 bg-[#141414] flex justify-center items-center rounded-3xl">
+          <div className="col-span-5 p-2 bg-[#141414] flex justify-center items-center rounded-2xl">
             <Image
               src={eventDetails.circuit.track.assets.info.path}
               alt="Track"
@@ -142,7 +143,7 @@ export default function EventPage() {
               height={500}
             />
           </div>
-          <div className="col-span-7 bg-[#141414] rounded-3xl p-7">
+          <div className="col-span-7 bg-[#141414] rounded-2xl p-7">
             <div className="flex justify-start items-center gap-1">
               <svg
                 width="22"
@@ -170,7 +171,7 @@ export default function EventPage() {
                   Longitud del circuito
                 </span>
                 <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
-                  {eventDetails.circuit.track.lenght_units.kiloMeters}KM
+                  {eventDetails.circuit.track.lenght_units.kiloMeters} Km
                 </p>
               </div>
               <div className="col-span-1 flex flex-col justify-center items-center pt-5">
@@ -200,6 +201,67 @@ export default function EventPage() {
                   {eventDetails.circuit.track.right_corners}
                 </p>
               </div>
+            </div>
+          </div>
+          <div className="col-span-5 bg-[#141414] rounded-2xl p-7">
+            <div className="grid grid-cols-12 ">
+              <div className="col-span-2 uppercase pb-3">
+                <span className="text-[#7d7d7d] flex justify-start items-center font-clash font-medium text-sm">
+                  Categoria
+                </span>
+              </div>
+              <div className="col-span-2 uppercase">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
+                  Vueltas
+                </span>
+              </div>
+              <div className="col-span-5 uppercase">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
+                  Distancia total
+                </span>
+              </div>
+              <div className="col-span-3 uppercase">
+                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
+                  Bandera roja
+                </span>
+              </div>
+              {eventDetails.event_categories
+                .sort((a, b) => b.num_laps - a.num_laps)
+                .map((category, index) => {
+                  const categoryName =
+                    index === 0
+                      ? "MotoGP™"
+                      : index === 1
+                      ? "Moto2™"
+                      : index === 2
+                      ? "Moto3™"
+                      : "";
+
+                  return (
+                    <React.Fragment key={index}>
+                      <div className="col-span-2 pb-1">
+                        <span className="text-[#bcbcbc] flex justify-start items-center font-clash font-semibold text-lg">
+                          {categoryName}
+                        </span>
+                      </div>
+                      <div className="col-span-2">
+                        <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
+                          {category.num_laps}
+                        </span>
+                      </div>
+                      <div className="col-span-5">
+                        <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
+                          {category.distance.kiloMeters} Km
+                        </span>
+                      </div>
+                      <div className="col-span-3">
+                        <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
+                          {category.red_flag}
+                        </span>
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
             </div>
           </div>
         </div>

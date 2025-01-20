@@ -12,7 +12,7 @@ export default function Straight({ className }: Props) {
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
       className={className}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
