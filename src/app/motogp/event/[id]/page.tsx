@@ -171,7 +171,7 @@ export default function EventPage() {
                   Longitud del circuito
                 </span>
                 <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
-                  {eventDetails.circuit.track.lenght_units.kiloMeters} Km
+                  {eventDetails.circuit.track.lenght_units.kiloMeters} KM
                 </p>
               </div>
               <div className="col-span-1 flex flex-col justify-center items-center pt-5">
