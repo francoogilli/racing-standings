@@ -1,19 +1,22 @@
-export default function ArrowRight() {
+interface Props {
+  className?: string;
+}
+export default function ArrowRight({ className }: Props) {
   return (
     <svg
-      role="img"
-      width="12"
-      height="13"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="none"
-      className="group-hover:translate-x-1 transition"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
     >
-      <symbol viewBox="0 0 12 13" id="a7">
-        <path
-          d="M9.1287 5.74992L5.1057 1.72692L6.16635 0.66626L12 6.49992L6.16635 12.3335L5.1057 11.2729L9.1287 7.24992H0V5.74992H9.1287Z"
-          fill="currentColor"
-        />
-      </symbol>
-      <use href="#a7"></use>
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M9 6l6 6l-6 6" />
     </svg>
   );
 }
