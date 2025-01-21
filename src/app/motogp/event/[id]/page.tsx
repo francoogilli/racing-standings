@@ -104,7 +104,7 @@ export default function EventPage() {
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4 pt-20">
-          <div className="col-span-7 bg-[#141414] rounded-2xl p-7">
+          <div className="col-span-7 bg-[#141414] rounded-2xl p-7 border border-[#252525]">
             <div className="flex justify-start items-center gap-2">
               <svg
                 width="22"
@@ -135,7 +135,7 @@ export default function EventPage() {
             ></div>
           </div>
 
-          <div className="col-span-5 p-2 bg-[#141414] flex justify-center items-center rounded-2xl">
+          <div className="col-span-5 p-2 bg-[#141414] border border-[#252525] flex justify-center items-center rounded-2xl">
             <Image
               src={eventDetails.circuit.track.assets.info.path}
               alt="Track"
@@ -143,7 +143,7 @@ export default function EventPage() {
               height={500}
             />
           </div>
-          <div className="col-span-7 bg-[#141414] rounded-2xl p-7">
+          <div className="col-span-7 bg-[#141414] border border-[#252525] rounded-2xl p-7">
             <div className="flex justify-start items-center gap-1">
               <svg
                 width="22"
@@ -203,7 +203,7 @@ export default function EventPage() {
               </div>
             </div>
           </div>
-          <div className="col-span-5 bg-[#141414] rounded-2xl p-7">
+          <div className="col-span-5 bg-[#141414] border border-[#252525] rounded-2xl p-7">
             <div className="grid grid-cols-12 ">
               <div className="col-span-2 uppercase pb-3">
                 <span className="text-[#7d7d7d] flex justify-start items-center font-clash font-medium text-sm">
