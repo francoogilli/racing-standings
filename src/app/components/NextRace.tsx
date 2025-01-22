@@ -76,7 +76,7 @@ export default function NextRace() {
         <div className="font-clash flex py-12 gap-x-10 justify-between flex-col md:flex-row gap-y-8">
           <article className="md:p-12 border border-black w-full p-8">
             <span className="flex justify-start gap-x-2 items-center text-xl opacity-70">
-              <Calendar />
+              <Calendar className="size-5 text-black" />
               ¿Cuándo?
             </span>
             <h3 className="md:text-5xl xl:text-[3.3125rem] font-clash font-medium">
