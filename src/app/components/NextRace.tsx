@@ -18,7 +18,7 @@ export default function NextRace() {
 
   const fetchSeasonsData = async () => {
     try {
-      const seasonsData = await fetchUnfinishedEvents();
+      const seasonsData = await fetchUnfinishedEvents(false);
       setNextRace(seasonsData);
     } catch (error) {
       console.error("Error fetching standings:", error);

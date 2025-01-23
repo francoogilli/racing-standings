@@ -12,15 +12,20 @@ export async function fetchStandings(): Promise<WorldStanding> {
   return response.json();
 }
 
-export async function fetchUnfinishedEvents(): Promise<ResponseItem[]> {
-  const response = await fetch(
-    "https://api.motogp.pulselive.com/motogp/v1/results/events?seasonUuid=ae6c6f0d-c652-44f8-94aa-420fc5b3dab4&isFinished=false"
-  );
+export async function fetchUnfinishedEvents(isFinished?: boolean): Promise<ResponseItem[]> {
+  let url = `https://api.motogp.pulselive.com/motogp/v1/results/events?seasonUuid=ae6c6f0d-c652-44f8-94aa-420fc5b3dab4`;
+  
+  if (isFinished !== undefined) {
+    url += `&isFinished=${isFinished}`;
+  }
+  const response = await fetch(url);
+  
   if (!response.ok) {
     throw new Error("Failed to fetch finished events");
   }
   return response.json();
 }
+
 
 export async function fetchCircuitData(id: string): Promise<EventInfoData> {
   const response = await fetch(
