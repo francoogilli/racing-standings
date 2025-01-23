@@ -5,23 +5,20 @@ interface Props {
 export default function Calendar({ className }: Props) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="40"
+      height="40"
+      strokeWidth="2.1"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
-      <path d="M16 3v4" />
-      <path d="M8 3v4" />
-      <path d="M4 11h16" />
-      <path d="M11 15h1" />
-      <path d="M12 15v3" />
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M15 4V2m0 2v2m0-2h-4.5M3 10v9c0 1.1046.89543 2 2 2h14c1.1046 0 2-.8954 2-2v-9H3ZM3 10V6c0-1.10457.89543-2 2-2h2M7 2v4M21 10V6c0-1.10457-.8954-2-2-2h-.5"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }

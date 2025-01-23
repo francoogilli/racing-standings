@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Inter, Train_One } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${interSans.variable} ${trainOne.variable} antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>
