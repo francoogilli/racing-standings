@@ -67,139 +67,157 @@ export default function Calendar() {
                   ? Array(22)
                       .fill(0)
                       .map((_, index) => <SkeletonLoader key={index} />)
-                  : nextRace.filter((race) => race.test === false).map((race, index) => (
-                      <a
-                        key={index}
-                        href={`/motogp/event/${race.toad_api_uuid}`}
-                        className="flex-1 min-w-0 group px-5 py-2 bg-[#141414] hover:bg-[#fdb600] border border-[#252525] duration-500 rounded-2xl mb-12"
-                      >
-                        <div className="mb-4">
-                          <div className="flex items-center mb-2">
-                            <div className="text-[#fdb600] group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
-                              ROUND {index + 1}
-                            </div>
-                            <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
-                          </div>
-
-                          <div className="flex  uppercase gap-2 mb-2">
-                            <div className="flex flex-col">
-                              <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
-                                {formatDateRange(
-                                  race?.date_start,
-                                  race?.date_end,
-                                  true
-                                )}
+                  : nextRace
+                      .filter((race) => race.test === false)
+                      .map((race, index) => (
+                        <a
+                          key={index}
+                          href={`/motogp/event/${race.toad_api_uuid}`}
+                          className="flex-1 min-w-0 group px-5 py-2 bg-[#141414] hover:bg-[#fdb600] border border-[#252525] duration-500 rounded-2xl mb-12"
+                        >
+                          <div className="mb-4">
+                            <div className="flex items-center mb-2">
+                              <div className="text-[#fdb600] group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
+                                ROUND {index + 1}
                               </div>
-                              {/* <div className="font-mono font-bold text-sm bg-black text-white px-2 py-1">
+                              <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
+                            </div>
+
+                            <div className="flex  uppercase gap-2 mb-2">
+                              <div className="flex flex-col">
+                                <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
+                                  {formatDateRange(
+                                    race?.date_start,
+                                    race?.date_end,
+                                    true
+                                  )}
+                                </div>
+                                {/* <div className="font-mono font-bold text-sm bg-black text-white px-2 py-1">
                           MAR
                         </div> */}
+                              </div>
+                              <div className="w-11 h-7 mr-1 relative ml-auto">
+                                <Image
+                                  src={`/flags/${race?.short_name}.jpg`}
+                                  alt={`${race.country} flag`}
+                                  fill
+                                  className="object-cover rounded-[4px]"
+                                />
+                              </div>
                             </div>
-                            <div className="w-11 h-7 mr-1 relative ml-auto">
+                          </div>
+
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-1">
+                              <h2 className="text-xl font-clash font-semibold group-hover:text-[#000] transition-colors">
+                                {translateCircuitName(race?.short_name)}
+                              </h2>
+                              <ArrowRight className="size-4 mt-0.5 text-[#ebebeb] group-hover:text-[#000] group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm uppercase font-clash font-semibold text-[#7d7d7d] group-hover:text-[#000] duration-500">
+                              {race.circuit.name}
+                            </p>
+                          </div>
+
+                          <div className="mt-4 p-4 bg-gradient-to-t from-[#141414] to-[#252525]   duration-500 rounded-2xl">
+                            <div className="relative aspect-[2/1]">
                               <Image
-                                src={`/flags/${race?.short_name}.jpg`}
-                                alt={`${race.country} flag`}
+                                src={`/tracks/${race?.short_name}.svg`}
+                                alt={`${race.country} circuit layout`}
                                 fill
-                                className="object-cover rounded-[4px]"
+                                className="object-contain"
                               />
                             </div>
                           </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-1">
-                            <h2 className="text-xl font-clash font-semibold group-hover:text-[#000] transition-colors">
-                              {translateCircuitName(race?.short_name)}
-                            </h2>
-                            <ArrowRight className="size-4 mt-0.5 text-[#ebebeb] group-hover:text-[#000] group-hover:translate-x-1 transition-transform" />
-                          </div>
-                          <p className="text-sm uppercase font-clash font-semibold text-[#7d7d7d] group-hover:text-[#000] duration-500">
-                            {race.circuit.name}
-                          </p>
-                        </div>
-
-                        <div className="mt-4 p-4 bg-gradient-to-t from-[#141414] to-[#252525]   duration-500 rounded-2xl">
-                          <div className="relative aspect-[2/1]">
-                            <Image
-                              src={`/tracks/${index + 1}.svg`}
-                              alt={`${race.country} circuit layout`}
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                        </div>
-                      </a>
-                    ))}
+                        </a>
+                      ))}
               </div>
             </Tab>
             <Tab key="videos" title="Todos los eventos">
-            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-screen-xl mx-auto pt-20">
-          {loading
-            ? Array(22)
-                .fill(0)
-                .map((_, index) => <SkeletonLoader key={index} />)
-            : nextRace.map((race, index) => (
-                <a
-                  key={index}
-                  href={`/motogp/event/${race.toad_api_uuid}`}
-                  className="flex-1 min-w-0 group px-5 py-2 bg-[#141414] hover:bg-[#fdb600] border border-[#252525] duration-500 rounded-2xl mb-12"
-                >
-                  <div className="mb-4">
-                    <div className="flex items-center mb-2">
-                      <div className="text-[#fdb600] group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
-                        ROUND {index + 1}
-                      </div>
-                      <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-screen-xl mx-auto pt-20">
+                {loading
+                  ? Array(22)
+                      .fill(0)
+                      .map((_, index) => <SkeletonLoader key={index} />)
+                  : (() => {
+                      let roundCounter = 0; // Contador de carreras válidas
+                      return nextRace
+                        .sort(
+                          (a, b) =>
+                            new Date(a.date_start).getTime() -
+                            new Date(b.date_start).getTime()
+                        )
+                        .map((race, index) => {
+                          const isValidRace = !race.test; // Verifica si la carrera no es un test
+                          if (isValidRace) {
+                            roundCounter++; // Incrementa el contador solo para carreras válidas
+                          }
 
-                    <div className="flex  uppercase gap-2 mb-2">
-                      <div className="flex flex-col">
-                        <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
-                          {formatDateRange(
-                            race?.date_start,
-                            race?.date_end,
-                            true
-                          )}
-                        </div>
-                        {/* <div className="font-mono font-bold text-sm bg-black text-white px-2 py-1">
-                          MAR
-                        </div> */}
-                      </div>
-                      <div className="w-11 h-7 mr-1 relative ml-auto">
-                        <Image
-                          src={`/flags/${race?.short_name}.jpg`}
-                          alt={`${race.country} flag`}
-                          fill
-                          className="object-cover rounded-[4px]"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                          return (
+                            <a
+                              key={index}
+                              href={`/motogp/event/${race.toad_api_uuid}`}
+                              className="flex-1 min-w-0 group px-5 py-2 bg-[#141414] hover:bg-[#fdb600] border border-[#252525] duration-500 rounded-2xl mb-12"
+                            >
+                              <div className="mb-4">
+                                <div className="flex items-center mb-2">
+                                  <div className="text-[#fdb600] group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
+                                    {isValidRace
+                                      ? `ROUND ${roundCounter}`
+                                      : "TEST"}{" "}
+                                    {/* Muestra ROUND solo para carreras válidas */}
+                                  </div>
+                                  <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
+                                </div>
 
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-1">
-                      <h2 className="text-xl font-clash font-semibold group-hover:text-[#000] transition-colors">
-                        {translateCircuitName(race?.short_name)}
-                      </h2>
-                      <ArrowRight className="size-4 mt-0.5 text-[#ebebeb] group-hover:text-[#000] group-hover:translate-x-1 transition-transform" />
-                    </div>
-                    <p className="text-sm uppercase font-clash font-semibold text-[#7d7d7d] group-hover:text-[#000] duration-500">
-                      {race.circuit.name}
-                    </p>
-                  </div>
+                                <div className="flex uppercase gap-2 mb-2">
+                                  <div className="flex flex-col">
+                                    <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
+                                      {formatDateRange(
+                                        race?.date_start,
+                                        race?.date_end,
+                                        true
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="w-11 h-7 mr-1 relative ml-auto">
+                                    <Image
+                                      src={`/flags/${race?.short_name}.jpg`}
+                                      alt={`${race.country} flag`}
+                                      fill
+                                      className="object-cover rounded-[4px]"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
 
-                  <div className="mt-4 p-4 bg-gradient-to-t from-[#141414] to-[#252525]   duration-500 rounded-2xl">
-                    <div className="relative aspect-[2/1]">
-                      <Image
-                        src={`/tracks/${index + 1}.svg`}
-                        alt={`${race.country} circuit layout`}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                </a>
-              ))}
-        </div>
+                              <div className="space-y-2">
+                                <div className="flex items-center gap-1">
+                                  <h2 className="text-xl font-clash font-semibold group-hover:text-[#000] transition-colors">
+                                    {translateCircuitName(race?.short_name)}
+                                  </h2>
+                                  <ArrowRight className="size-4 mt-0.5 text-[#ebebeb] group-hover:text-[#000] group-hover:translate-x-1 transition-transform" />
+                                </div>
+                                <p className="text-sm uppercase font-clash font-semibold text-[#7d7d7d] group-hover:text-[#000] duration-500">
+                                  {race.circuit.name}
+                                </p>
+                              </div>
+
+                              <div className="mt-4 p-4 bg-gradient-to-t from-[#141414] to-[#252525] duration-500 rounded-2xl">
+                                <div className="relative aspect-[2/1]">
+                                  <Image
+                                    src={`/tracks/${race?.short_name}.svg`}
+                                    alt={`${race.country} circuit layout`}
+                                    fill
+                                    className="object-contain"
+                                  />
+                                </div>
+                              </div>
+                            </a>
+                          );
+                        });
+                    })()}
+              </div>
             </Tab>
           </Tabs>
         </div>
