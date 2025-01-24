@@ -140,7 +140,7 @@ export default function Calendar() {
                       .fill(0)
                       .map((_, index) => <SkeletonLoader key={index} />)
                   : (() => {
-                      let roundCounter = 0; // Contador de carreras válidas
+                      let roundCounter = 0;
                       return nextRace
                         .sort(
                           (a, b) =>
@@ -148,9 +148,9 @@ export default function Calendar() {
                             new Date(b.date_start).getTime()
                         )
                         .map((race, index) => {
-                          const isValidRace = !race.test; // Verifica si la carrera no es un test
+                          const isValidRace = !race.test;
                           if (isValidRace) {
-                            roundCounter++; // Incrementa el contador solo para carreras válidas
+                            roundCounter++;
                           }
 
                           return (
@@ -193,8 +193,8 @@ export default function Calendar() {
 
                               <div className="space-y-2">
                                 <div className="flex items-center gap-1">
-                                  <h2 className="text-xl font-clash font-semibold group-hover:text-[#000] transition-colors">
-                                    {translateCircuitName(race?.short_name)}
+                                  <h2 className="text-xl font-clash font-semibold uppercase group-hover:text-[#000] transition-colors">
+                                  {race.test ? race.name : translateCircuitName(race?.short_name)}
                                   </h2>
                                   <ArrowRight className="size-4 mt-0.5 text-[#ebebeb] group-hover:text-[#000] group-hover:translate-x-1 transition-transform" />
                                 </div>
