@@ -78,8 +78,8 @@ export default function Calendar() {
                           href={`/motogp/event/${race.toad_api_uuid}`}
                           className="flex-1 min-w-0 group px-5 py-2 bg-[#141414] hover:bg-[#fdb600] border border-[#252525] duration-500 rounded-2xl mb-12"
                         >
-                          <div className="mb-4">
-                            <div className="flex items-center mb-2">
+                          <div className="mb-2">
+                            <div className="flex items-center mb-0.5">
                               <div className="text-[#fdb600] flex justify-center pb-3 items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                 ROUND {index + 1}
                                 {new Date(race?.date_end) < new Date() && (
@@ -98,7 +98,7 @@ export default function Calendar() {
                               <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
                             </div>
 
-                            <div className="flex  uppercase gap-2 mb-2">
+                            <div className="flex justify-between items-center uppercase gap-2 ">
                               <div className="flex flex-col">
                                 <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
                                   {formatDateRange(
@@ -108,13 +108,16 @@ export default function Calendar() {
                                   )}
                                 </div>
                               </div>
-                              <div className="w-11 h-7 mr-1 relative ml-auto">
-                                <Image
-                                  src={`/flags/${race?.short_name}.jpg`}
-                                  alt={`${race.country} flag`}
-                                  fill
-                                  className="object-cover rounded-[4px]"
-                                />
+                              <div className="p-2 bg-gradient-to-b from-[#363636] to-[#00000030] border-2 border-[#474747] w-fit rounded-full flex items-center justify-center">
+                                <div className="w-[30px] h-[30px] overflow-hidden rounded-md">
+                                  <Image
+                                    src={`/flags/${race.short_name}.jpg`}
+                                    alt={`${race.country} flag`}
+                                    width={100}
+                                    height={100}
+                                    className="object-cover object-center w-full h-full rounded-full"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -171,7 +174,7 @@ export default function Calendar() {
                               href={`/motogp/event/${race.toad_api_uuid}`}
                               className="flex-1 min-w-0 group px-5 py-2 bg-[#141414] hover:bg-[#fdb600] border border-[#252525] duration-500 rounded-2xl mb-12"
                             >
-                              <div className="mb-4">
+                              <div className="mb-2">
                                 <div className="flex items-center mb-2">
                                   <div className="text-[#fdb600] flex justify-center pb-3 items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                     {isValidRace
@@ -194,25 +197,28 @@ export default function Calendar() {
                                   <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
                                 </div>
 
-                                <div className="flex uppercase gap-2 mb-2">
-                                  <div className="flex flex-col">
-                                    <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
-                                      {formatDateRange(
-                                        race?.date_start,
-                                        race?.date_end,
-                                        true
-                                      )}
-                                    </div>
-                                  </div>
-                                  <div className="w-11 h-7 mr-1 relative ml-auto">
-                                    <Image
-                                      src={`/flags/${race?.short_name}.jpg`}
-                                      alt={`${race.country} flag`}
-                                      fill
-                                      className="object-cover rounded-[4px]"
-                                    />
-                                  </div>
+                                <div className="flex justify-between items-center uppercase gap-2 ">
+                              <div className="flex flex-col">
+                                <div className="font-clash group-hover:text-black duration-500 font-bold text-xl">
+                                  {formatDateRange(
+                                    race?.date_start,
+                                    race?.date_end,
+                                    true
+                                  )}
                                 </div>
+                              </div>
+                              <div className="p-2 bg-gradient-to-b from-[#363636] to-[#00000030] border-2 border-[#474747] w-fit rounded-full flex items-center justify-center">
+                                <div className="w-[30px] h-[30px] overflow-hidden rounded-md">
+                                  <Image
+                                    src={`/flags/${race.short_name}.jpg`}
+                                    alt={`${race.country} flag`}
+                                    width={100}
+                                    height={100}
+                                    className="object-cover object-center w-full h-full rounded-full"
+                                  />
+                                </div>
+                              </div>
+                            </div>
                               </div>
 
                               <div className="space-y-2">
