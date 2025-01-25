@@ -1,7 +1,8 @@
 interface Props {
     className?: string
+    strokeWidth?: number
 }
-export default function EaseInOut({ className }: Props) {
+export default function EaseInOut({ className, strokeWidth = 2 }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +11,7 @@ export default function EaseInOut({ className }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}    >
