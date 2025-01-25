@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Tabs, Tab } from "@heroui/tabs";
 import ArrowRight from "@/app/icons/ArrowRight";
+import Flags from "@/app/icons/Flags";
+import Upcoming from "@/app/icons/Upcoming";
 const SkeletonLoader = () => (
   <div className="animate-pulse mb-8">
     <div className="col-span-1 flex flex-col items-center p-6 bg-zinc-800 animate-pulse rounded-lg">
@@ -61,7 +63,7 @@ export default function Calendar() {
             radius="lg"
             variant="solid"
           >
-            <Tab key="music" title="Grandes Premios">
+            <Tab title="Grandes Premios">
               <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-screen-xl mx-auto pt-20">
                 {loading
                   ? Array(22)
@@ -77,8 +79,20 @@ export default function Calendar() {
                         >
                           <div className="mb-4">
                             <div className="flex items-center mb-2">
-                              <div className="text-[#fdb600] group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
+                              <div className="text-[#fdb600] flex justify-center items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                 ROUND {index + 1}
+                                {new Date(race?.date_end) < new Date() && (
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                        <Flags className="mb-0.5 " />
+                                        FINALIZADA
+                                      </div>
+                                    )}
+                                    {new Date(race?.date_start) > new Date() && (
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                        <Upcoming className="mb-0.5" />
+                                        PROXIMAMENTE
+                                      </div>
+                                    )}
                               </div>
                               <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
                             </div>
@@ -133,7 +147,7 @@ export default function Calendar() {
                       ))}
               </div>
             </Tab>
-            <Tab key="videos" title="Todos los eventos">
+            <Tab title="Todos los eventos">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-screen-xl mx-auto pt-20">
                 {loading
                   ? Array(22)
@@ -161,11 +175,22 @@ export default function Calendar() {
                             >
                               <div className="mb-4">
                                 <div className="flex items-center mb-2">
-                                  <div className="text-[#fdb600] group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
+                                  <div className="text-[#fdb600] flex justify-center items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                     {isValidRace
                                       ? `ROUND ${roundCounter}`
                                       : "TEST"}{" "}
-                                    {/* Muestra ROUND solo para carreras válidas */}
+                                    {new Date(race?.date_end) < new Date() && (
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                        <Flags className="mb-0.5 " />
+                                        FINALIZADA
+                                      </div>
+                                    )}
+                                    {new Date(race?.date_start) > new Date() && (
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                        <Upcoming className="mb-0.5" />
+                                        PROXIMAMENTE
+                                      </div>
+                                    )}
                                   </div>
                                   <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
                                 </div>
@@ -194,7 +219,9 @@ export default function Calendar() {
                               <div className="space-y-2">
                                 <div className="flex items-center gap-1">
                                   <h2 className="text-xl font-clash font-semibold uppercase group-hover:text-[#000] transition-colors">
-                                  {race.test ? race.name : translateCircuitName(race?.short_name)}
+                                    {race.test
+                                      ? race.name
+                                      : translateCircuitName(race?.short_name)}
                                   </h2>
                                   <ArrowRight className="size-4 mt-0.5 text-[#ebebeb] group-hover:text-[#000] group-hover:translate-x-1 transition-transform" />
                                 </div>
