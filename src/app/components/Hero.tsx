@@ -150,7 +150,7 @@ const Hero = () => {
           <div style={{ opacity: 1, transform: "none" }}>
             <div className="flex items-center gap-2 mt-4 ">
               <a
-                className="inline-flex text-black items-center justify-center gap-2 whitespace-nowrap text-base font-semibold ring-offset-background  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-gradient-to-tr from-[#ffde65] to-[#fdb600]  shadow-innerGlow text-primary-foreground transition-all duration-300 hover:ring-1 hover:ring-[#ffde65] hover:ring-offset-2 h-12 rounded-md px-4 group overflow-hidden"
+                className="inline-flex text-black items-center justify-center gap-2 whitespace-nowrap text-base font-semibold ring-offset-background  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-gradient-to-tr from-[#ffde65] to-[#fdb600]  shadow-innerGlow  transition-all duration-300 hover:ring-1 hover:ring-[#ffde65] hover:ring-offset-2 h-12 rounded-md px-4 group overflow-hidden"
                 href="#"
               >
                 <div className="font-clash translate-y-0 overflow-hidden font-medium flex flex-row gap-2 items-center opacity-100 transition group-hover:-translate-y-[150%] group-hover:opacity-0">
