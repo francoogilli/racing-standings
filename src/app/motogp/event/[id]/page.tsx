@@ -57,6 +57,7 @@ export default function EventPage() {
   const fetchCircuitInfo = async () => {
     try {
       const circuitData = await fetchCircuitData(id as string).then();
+      debugger;
       setEventDetails(circuitData);
     } catch (error) {
       console.error("Error fetching standings:", error);
@@ -114,11 +115,14 @@ export default function EventPage() {
               </p>
             </div>
 
-            <div className="col-span-4 rounded-xl bg-[#141414] border border-[#252525] p-6 flex flex-col justify-end">
-              
-              <h3 className="text-5xl pb-6 font-bold uppercase font-clash">
-                {eventDetails?.circuit?.country}
-              </h3>
+            <div className="col-span-4 rounded-xl bg-[#141414] border border-[#252525] p-6 flex flex-col justify-center items-center">
+              <Image
+                src={eventDetails.circuit.track.assets.simple.path}
+                alt="Track"
+                width={500}
+                height={500}
+                className="object-contain"
+              />
             </div>
 
             <div className="col-span-4 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-5 flex flex-col justify-center items-center">
@@ -130,7 +134,7 @@ export default function EventPage() {
             </div>
 
             {/* Middle Row */}
-            <div className="col-span-3 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-6 flex flex-col justify-center items-center">
+            <div className="col-span-4 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-6 flex flex-col justify-center items-center">
               <CornerLeft strokeWidth={3} className="size-20 text-[#ededed]" />
               Izquierdas
               <p className=" text-[#ededed] font-clash font-bold pt-5 text-base xl:text-7xl">
@@ -138,17 +142,17 @@ export default function EventPage() {
               </p>
             </div>
 
-            <div className="col-span-6 rounded-xl bg-[#141414] border border-[#252525] p-20 flex items-center justify-center">
+            <div className="col-span-4 rounded-xl bg-[#141414] border border-[#252525] flex items-center justify-center overflow-hidden">
               <Image
-                src={eventDetails.circuit.track.assets.info.path}
+                src={eventDetails.assets[0].path}
                 alt="Track"
-                width={500}
-                height={500}
-                className="p-16"
+                width={1000}
+                height={667}
+                className="object-contain"
               />
             </div>
 
-            <div className="col-span-3 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-6 flex flex-col justify-center items-center">
+            <div className="col-span-4 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-6 flex flex-col justify-center items-center">
               <CornerRight strokeWidth={3} className="size-20 text-[#ededed]" />
               Derechas
               <p className=" text-[#ededed] font-clash font-bold pt-5 text-base xl:text-7xl">
