@@ -62,6 +62,7 @@ export default function Calendar() {
             size="lg"
             radius="lg"
             variant="solid"
+            color="primary"
           >
             <Tab title="Grandes Premios">
               <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-screen-xl mx-auto pt-20">
@@ -106,9 +107,6 @@ export default function Calendar() {
                                     true
                                   )}
                                 </div>
-                                {/* <div className="font-mono font-bold text-sm bg-black text-white px-2 py-1">
-                          MAR
-                        </div> */}
                               </div>
                               <div className="w-11 h-7 mr-1 relative ml-auto">
                                 <Image
