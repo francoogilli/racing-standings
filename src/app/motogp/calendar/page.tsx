@@ -88,7 +88,7 @@ export default function Calendar() {
                                       </div>
                                     )}
                                     {new Date(race?.date_start) > new Date() && (
-                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#a5a5a5] group-hover:text-[#141414] gap-2">
                                         <Upcoming className="mb-0.5" />
                                         PROXIMAMENTE
                                       </div>
@@ -186,7 +186,7 @@ export default function Calendar() {
                                       </div>
                                     )}
                                     {new Date(race?.date_start) > new Date() && (
-                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#a5a5a5] group-hover:text-[#141414] gap-2">
                                         <Upcoming className="mb-0.5" />
                                         PROXIMAMENTE
                                       </div>
