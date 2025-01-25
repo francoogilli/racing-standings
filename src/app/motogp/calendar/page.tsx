@@ -85,7 +85,7 @@ export default function Calendar() {
                                 {new Date(race?.date_end) < new Date() && (
                                   <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-xs items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
                                     <Flags className="mb-0.5 size-3.5" />
-                                    FINALIZADA
+                                    FINALIZADO
                                   </div>
                                 )}
                                 {new Date(race?.date_start) > new Date() && (
@@ -180,7 +180,7 @@ export default function Calendar() {
                                     {new Date(race?.date_end) < new Date() && (
                                       <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-xs items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
                                         <Flags className="mb-0.5 size-3.5" />
-                                        FINALIZADA
+                                        FINALIZADO
                                       </div>
                                     )}
                                     {new Date(race?.date_start) >
