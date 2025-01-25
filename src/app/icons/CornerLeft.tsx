@@ -2,22 +2,27 @@ interface CornerLeftProps {
   className?: string;
   strokeWidth?: number;
 }
-export default function CornerLeft({ className, strokeWidth = 2 }: CornerLeftProps) {
+export default function CornerLeft({
+  className,
+  strokeWidth = 2,
+}: CornerLeftProps) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      id="Arrow - Right"
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
       strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`${className} transform -rotate-180`}
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M18 18v-6a3 3 0 0 0 -3 -3h-10l4 -4m0 8l-4 -4" />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M13.4885 4.56152L12.0775 5.97852L17.1205 10.9995H3.5415V12.9995H17.1195L12.0775 18.0215L13.4885 19.4385L20.9585 11.9995L13.4885 4.56152Z"
+        fill="currentColor"
+      ></path>
     </svg>
   );
 }
