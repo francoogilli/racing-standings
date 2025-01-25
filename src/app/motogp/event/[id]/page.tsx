@@ -11,6 +11,8 @@ import CornerRight from "@/app/icons/CornerRight";
 import CornerLeft from "@/app/icons/CornerLeft";
 import EaseInOut from "@/app/icons/EaseInOut";
 import React from "react";
+import MotoGp from "@/app/icons/MotoGp";
+import e from "express";
 
 function Skeleton() {
   return (
@@ -103,165 +105,124 @@ export default function EventPage() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-4 pt-20">
-          <div className="col-span-7 bg-[#141414] rounded-2xl p-7 border border-[#252525]">
-            <div className="flex justify-start items-center gap-2">
-              <svg
-                width="22"
-                height="27"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-[#000000]"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M21.353.709717h-5.6761c-2.7029 0-5.4059 1.621743-6.48701 4.324653L0 26.9279h5.67611c2.7029 0 5.40579-1.6217 6.48699-4.3246L21.353.709717Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <h3 className="uppercase text-4xl pt-1 font-clash font-semibold">
-                {eventDetails.circuit.name}
+        <div className="w-full max-w-7xl mx-auto p-4">
+          <div className="grid grid-cols-12 grid-rows-[200px_250px_200px] gap-3.5 bg-black text-white">
+            {/* Top Row */}
+            <div className="col-span-4 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-5 flex flex-col justify-center items-center">
+              <EaseInOut className="size-20 text-[#ededed]" />
+              Longitud del circuito
+              <p className=" text-[#ededed] font-clash font-bold pt-5 text-base xl:text-6xl">
+                {eventDetails.circuit.track.lenght_units.kiloMeters} KM
+              </p>
+            </div>
+
+            <div className="col-span-4 rounded-xl bg-[#141414] border border-[#252525] p-6 flex flex-col justify-end">
+              
+              <h3 className="text-5xl pb-6 font-bold uppercase font-clash">
+                {eventDetails?.circuit?.country}
               </h3>
             </div>
-            <div
-              className="pt-3 text-[#c3c3c3] font-clash space-y-3 text-base xl:text-[17px]"
-              dangerouslySetInnerHTML={{
-                __html:
-                  eventDetails.circuit.circuit_descriptions.find(
-                    (desc) => desc.language === "es"
-                  )?.description || "Descripción no disponible en español.",
-              }}
-            ></div>
-          </div>
 
-          <div className="col-span-5 p-2 bg-[#141414] border border-[#252525] flex justify-center items-center rounded-2xl">
-            <Image
-              src={eventDetails.circuit.track.assets.info.path}
-              alt="Track"
-              width={500}
-              height={500}
-            />
-          </div>
-          <div className="col-span-7 bg-[#141414] border border-[#252525] rounded-2xl p-7">
-            <div className="flex justify-start items-center gap-1">
-              <svg
-                width="22"
-                height="27"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 22 27"
-                className="text-[#22c659] size-4"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M21.353.709717h-5.6761c-2.7029 0-5.4059 1.621743-6.48701 4.324653L0 26.9279h5.67611c2.7029 0 5.40579-1.6217 6.48699-4.3246L21.353.709717Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <h3 className="uppercase text-xl pt-0.5 font-clash font-semibold">
-                Especificaciones del circuito
-              </h3>
+            <div className="col-span-4 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-5 flex flex-col justify-center items-center">
+              <Straight className="size-20 text-[#ededed]" />
+              Recta más larga
+              <p className=" text-[#ededed] font-clash font-bold pt-5 text-base xl:text-6xl">
+                {eventDetails.circuit.track.longest_straight} M
+              </p>
             </div>
-            <div className="grid grid-cols-4 gap-2 pt-3">
-              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
-                  <EaseInOut className="-rotate-12" />
-                  Longitud del circuito
-                </span>
-                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
-                  {eventDetails.circuit.track.lenght_units.kiloMeters} KM
-                </p>
-              </div>
-              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
-                  <Straight />
-                  Recta más larga
-                </span>
-                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
-                  {eventDetails.circuit.track.longest_straight}M
-                </p>
-              </div>
-              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
-                  <CornerLeft />
-                  Curvas izquierdas
-                </span>
-                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
-                  {eventDetails.circuit.track.left_corners}
-                </p>
-              </div>
-              <div className="col-span-1 flex flex-col justify-center items-center pt-5">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-lg ">
-                  <CornerRight />
-                  Curvas derechas
-                </span>
-                <p className=" text-[#efefef] font-clash font-bold  text-base xl:text-2xl">
-                  {eventDetails.circuit.track.right_corners}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-span-5 bg-[#141414] border border-[#252525] rounded-2xl p-7">
-            <div className="grid grid-cols-12 ">
-              <div className="col-span-2 uppercase pb-3">
-                <span className="text-[#7d7d7d] flex justify-start items-center font-clash font-medium text-sm">
-                  Categoria
-                </span>
-              </div>
-              <div className="col-span-2 uppercase">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
-                  Vueltas
-                </span>
-              </div>
-              <div className="col-span-5 uppercase">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
-                  Distancia total
-                </span>
-              </div>
-              <div className="col-span-3 uppercase">
-                <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
-                  Bandera roja
-                </span>
-              </div>
-              {eventDetails.event_categories
-                .sort((a, b) => b.num_laps - a.num_laps)
-                .map((category, index) => {
-                  const categoryName =
-                    index === 0
-                      ? "MotoGP™"
-                      : index === 1
-                      ? "Moto2™"
-                      : index === 2
-                      ? "Moto3™"
-                      : "";
 
-                  return (
-                    <React.Fragment key={index}>
-                      <div className="col-span-2 pb-1">
-                        <span className="text-[#bcbcbc] flex justify-start items-center font-clash font-semibold text-lg">
-                          {categoryName}
-                        </span>
-                      </div>
-                      <div className="col-span-2">
-                        <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
-                          {category.num_laps}
-                        </span>
-                      </div>
-                      <div className="col-span-5">
-                        <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
-                          {category.distance.kiloMeters} Km
-                        </span>
-                      </div>
-                      <div className="col-span-3">
-                        <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
-                          {category.red_flag}
-                        </span>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
+            {/* Middle Row */}
+            <div className="col-span-3 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-6 flex flex-col justify-center items-center">
+              <CornerLeft strokeWidth={3} className="size-20 text-[#ededed]" />
+              Izquierdas
+              <p className=" text-[#ededed] font-clash font-bold pt-5 text-base xl:text-7xl">
+                {eventDetails.circuit.track.left_corners}
+              </p>
+            </div>
+
+            <div className="col-span-6 rounded-xl bg-[#141414] border border-[#252525] p-20 flex items-center justify-center">
+              <Image
+                src={eventDetails.circuit.track.assets.info.path}
+                alt="Track"
+                width={500}
+                height={500}
+                className="p-16"
+              />
+            </div>
+
+            <div className="col-span-3 text-xl rounded-xl bg-[#141414] uppercase border border-[#252525] font-geist text-[#ededed] font-extrabold  p-6 flex flex-col justify-center items-center">
+              <CornerRight strokeWidth={3} className="size-20 text-[#ededed]" />
+              Derechas
+              <p className=" text-[#ededed] font-clash font-bold pt-5 text-base xl:text-7xl">
+                {eventDetails.circuit.track.right_corners}
+              </p>
+            </div>
+
+            {/* Bottom Row */}
+            <div className="col-span-6 bg-[#141414] border border-[#252525] rounded-2xl p-6">
+              <div className="grid grid-cols-12 pt-3">
+                <div className="col-span-2 uppercase pb-3">
+                  <span className="text-[#7d7d7d] flex justify-start items-center font-clash font-medium text-sm">
+                    Categoria
+                  </span>
+                </div>
+                <div className="col-span-2 uppercase">
+                  <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
+                    Vueltas
+                  </span>
+                </div>
+                <div className="col-span-5 uppercase">
+                  <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
+                    Distancia total
+                  </span>
+                </div>
+                <div className="col-span-3 uppercase">
+                  <span className="text-[#7d7d7d] flex justify-center items-center font-clash font-medium text-sm">
+                    Bandera roja
+                  </span>
+                </div>
+                {eventDetails.event_categories
+                  .sort((a, b) => b.num_laps - a.num_laps)
+                  .map((category, index) => {
+                    const categoryName =
+                      index === 0
+                        ? "MotoGP™"
+                        : index === 1
+                        ? "Moto2™"
+                        : index === 2
+                        ? "Moto3™"
+                        : "";
+
+                    return (
+                      <React.Fragment key={index}>
+                        <div className="col-span-2 pb-1">
+                          <span className="text-[#bcbcbc] flex justify-start items-center font-clash font-semibold text-lg">
+                            {categoryName}
+                          </span>
+                        </div>
+                        <div className="col-span-2">
+                          <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
+                            {category.num_laps}
+                          </span>
+                        </div>
+                        <div className="col-span-5">
+                          <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
+                            {category.distance.kiloMeters} Km
+                          </span>
+                        </div>
+                        <div className="col-span-3">
+                          <span className="text-[#bcbcbc] flex justify-center items-center font-clash font-semibold text-lg">
+                            {category.red_flag}
+                          </span>
+                        </div>
+                      </React.Fragment>
+                    );
+                  })}
+              </div>
+            </div>
+
+            <div className="col-span-6 font-bold text-7xl rounded-xl bg-[#141414] border border-[#252525] p-6 flex items-center justify-center">
+              ?
             </div>
           </div>
         </div>
