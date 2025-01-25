@@ -122,8 +122,8 @@ export default function Header() {
           </ul>{" "}
         </nav>
         <div className="flex md:flex-grow md:basis-0 items-center gap-4 mr-4 ml-auto md:ml-0 justify-end">
-          <button className="py-2.5 px-4 justify-center rounded-xl font-normal border hover:scale-105 transition-transform duration-300 bg-[#2b2a2a] text-white border-[#404040] text-base leading-none inline-flex items-center gap-2">
-            <Github className="size-5" />
+          <button className="py-2.5 px-3 rounded-full justify-center bg-[#161616] text-[#b3b3b3] border-[#2c2c2c] font-normal border hover:scale-105 transition-transform duration-300 text-base leading-none inline-flex items-center gap-2">
+            <Github className="size-5 text-[#b3b3b3]" />
             Github
           </button>{" "}
         </div>{" "}
