@@ -83,17 +83,17 @@ export default function Calendar() {
                               <div className="text-[#fdb600] flex justify-center pb-3 items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                 ROUND {index + 1}
                                 {new Date(race?.date_end) < new Date() && (
-                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
-                                        <Flags className="mb-0.5 " />
-                                        FINALIZADA
-                                      </div>
-                                    )}
-                                    {new Date(race?.date_start) > new Date() && (
-                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#a5a5a5] group-hover:text-[#141414] gap-2">
-                                        <Upcoming className="mb-0.5" />
-                                        PROXIMAMENTE
-                                      </div>
-                                    )}
+                                  <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-xs items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                    <Flags className="mb-0.5 size-3.5" />
+                                    FINALIZADA
+                                  </div>
+                                )}
+                                {new Date(race?.date_start) > new Date() && (
+                                  <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-xs items-center text-[#a5a5a5] group-hover:text-[#141414] gap-2">
+                                    <Upcoming className="mb-0.5 size-3.5" />
+                                    PROXIMAMENTE
+                                  </div>
+                                )}
                               </div>
                               <div className="flex-grow h-[5px] rounded-full bg-[#141414] group-hover:bg-[#fdb600] duration-500"></div>
                             </div>
@@ -178,14 +178,15 @@ export default function Calendar() {
                                       ? `ROUND ${roundCounter}`
                                       : "TEST"}{" "}
                                     {new Date(race?.date_end) < new Date() && (
-                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
-                                        <Flags className="mb-0.5 " />
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-xs items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
+                                        <Flags className="mb-0.5 size-3.5" />
                                         FINALIZADA
                                       </div>
                                     )}
-                                    {new Date(race?.date_start) > new Date() && (
-                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#a5a5a5] group-hover:text-[#141414] gap-2">
-                                        <Upcoming className="mb-0.5" />
+                                    {new Date(race?.date_start) >
+                                      new Date() && (
+                                      <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-xs items-center text-[#a5a5a5] group-hover:text-[#141414] gap-2">
+                                        <Upcoming className="mb-0.5 size-3.5" />
                                         PROXIMAMENTE
                                       </div>
                                     )}
