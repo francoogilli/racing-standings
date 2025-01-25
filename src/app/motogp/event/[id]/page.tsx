@@ -11,8 +11,6 @@ import CornerRight from "@/app/icons/CornerRight";
 import CornerLeft from "@/app/icons/CornerLeft";
 import EaseInOut from "@/app/icons/EaseInOut";
 import React from "react";
-import MotoGp from "@/app/icons/MotoGp";
-import e from "express";
 
 function Skeleton() {
   return (
