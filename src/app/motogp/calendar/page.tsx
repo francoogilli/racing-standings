@@ -79,7 +79,7 @@ export default function Calendar() {
                         >
                           <div className="mb-4">
                             <div className="flex items-center mb-2">
-                              <div className="text-[#fdb600] flex justify-center items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
+                              <div className="text-[#fdb600] flex justify-center pb-3 items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                 ROUND {index + 1}
                                 {new Date(race?.date_end) < new Date() && (
                                       <div className="bg-[#00000047] border border-[#232323] group-hover:border-[#8e732e] group-hover:bg-[#fd980051] duration-500 px-2 py-1 rounded-lg flex justify-center text-sm items-center text-[#f8f8f8] group-hover:text-[#141414] gap-2">
@@ -175,7 +175,7 @@ export default function Calendar() {
                             >
                               <div className="mb-4">
                                 <div className="flex items-center mb-2">
-                                  <div className="text-[#fdb600] flex justify-center items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
+                                  <div className="text-[#fdb600] flex justify-center pb-3 items-center gap-4 group-hover:text-[#141414] text-lg font-bold duration-300 font-clash mr-4">
                                     {isValidRace
                                       ? `ROUND ${roundCounter}`
                                       : "TEST"}{" "}
