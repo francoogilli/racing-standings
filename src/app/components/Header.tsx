@@ -40,12 +40,12 @@ export default function Header() {
 
   const menuOptions = [
     {
-      href: "/standings",
+      href: "/motogp/standings",
       label: "Clasificación",
       icon: <Medal className="size-5 text-white" />,
     },
     {
-      href: "#",
+      href: "motogp/riders",
       label: "Pilotos",
       icon: (
         <Helmet className="size-5 -rotate-12" />
